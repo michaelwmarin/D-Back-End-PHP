@@ -17,29 +17,22 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    # Dica de depuração: Se o erro voltar, descomente as 2 linhas abaixo
+    # - name: List files in repository
+    #   run: ls -R
+
     - name: Validate composer.json and composer.lock
-      # Adicionado para executar o comando dentro da pasta correta
-      working-directory: ./D-Back-End-PHP  # <-- SUBSTITUA PELO NOME DA SUA PASTA
       run: composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
       with:
-        # O caminho agora inclui a subpasta, pois é lá que o 'vendor' será criado
-        path: D-Back-End-PHP/vendor # <-- SUBSTITUA PELO NOME DA SUA PASTA
+        # O path correto é 'vendor' na raiz
+        path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      # Adicionado para executar o comando dentro da pasta correta
-      working-directory: ./D-Back-End-PHP # <-- SUBSTITUA PELO NOME DA SUA PASTA
       run: composer install --prefer-dist --no-progress
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   working-directory: ./D-Back-End-PHP # <-- SE FOR USAR TESTES, ADICIONE AQUI TAMBÉM
-    #   run: composer run-script test
