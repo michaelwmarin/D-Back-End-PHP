@@ -1,14 +1,12 @@
 {
     "name": "michael/d-back-end-php",
-    "autoload": {
-        "psr-4": {
-            "Michael\\DBackEndPhp\\": "src/"
-        }
-    },
+    "description": "Um projeto para estudos de PHP.",
+    "type": "project",
+    "license": "proprietary",
     "authors": [
         {
-            "name": "michaelwmarin",
-            "email": "michaelwmarin@outlook.com"
+            "name": "Michael H",
+            "email": "email@example.com"
         }
     ],
     "require": {}
