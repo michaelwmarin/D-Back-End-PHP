@@ -1,0 +1,15 @@
+{
+    "name": "michael/d-back-end-php",
+    "autoload": {
+        "psr-4": {
+            "Michael\\DBackEndPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "michaelwmarin",
+            "email": "michaelwmarin@outlook.com"
+        }
+    ],
+    "require": {}
+}
