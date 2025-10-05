@@ -17,10 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # ADICIONE ESTE PASSO DE DEPURAÇÃO AQUI
-    - name: List files in repository
-      run: ls -R
-
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
